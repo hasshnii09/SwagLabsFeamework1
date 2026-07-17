@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>TestNG:  Default test</title>
+<title>TestNG:  Login Test</title>
 <link href="../testng.css" rel="stylesheet" type="text/css" />
 <link href="../my-testng.css" rel="stylesheet" type="text/css" />
 
@@ -53,13 +53,13 @@ function toggleAllBoxes() {
 
 </head>
 <body>
-<h2 align='center'>Default test</h2><table border='1' align="center">
+<h2 align='center'>Login Test</h2><table border='1' align="center">
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>11/0/0</td>
 </tr><tr>
-<td>Started on:</td><td>Fri Jul 17 16:07:41 IST 2026</td>
+<td>Started on:</td><td>Fri Jul 17 16:11:18 IST 2026</td>
 </tr>
-<tr><td>Total time:</td><td>37 seconds (37408 ms)</td>
+<tr><td>Total time:</td><td>36 seconds (36738 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -76,6 +76,11 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
+<td title='tests.SwagLabsLoginTest.loginTest()'><b>loginTest</b><br>Test class: tests.SwagLabsLoginTest<br>Parameters: TC_004, Positive, error_user, secret_sauce, User logs in successfully and lands on Products page, Pass</td>
+<td></td>
+<td>0</td>
+<td>tests.SwagLabsLoginTest@2f4948e4</td></tr>
+<tr>
 <td title='tests.SwagLabsLoginTest.loginTest()'><b>loginTest</b><br>Test class: tests.SwagLabsLoginTest<br>Parameters: TC_008, Negative, standard_user, wrong_pass, Error message displayed: Username and password do not match any user in this service, Fail</td>
 <td></td>
 <td>0</td>
@@ -86,17 +91,7 @@ function toggleAllBoxes() {
 <td>0</td>
 <td>tests.SwagLabsLoginTest@2f4948e4</td></tr>
 <tr>
-<td title='tests.SwagLabsLoginTest.loginTest()'><b>loginTest</b><br>Test class: tests.SwagLabsLoginTest<br>Parameters: TC_010, Negative, standard_user, , Error message displayed: Epic sadface: Password is required., Fail</td>
-<td></td>
-<td>0</td>
-<td>tests.SwagLabsLoginTest@2f4948e4</td></tr>
-<tr>
-<td title='tests.SwagLabsLoginTest.loginTest()'><b>loginTest</b><br>Test class: tests.SwagLabsLoginTest<br>Parameters: TC_005, Positive, visual_user, secret_sauce, User logs in successfully and lands on Products page, Pass</td>
-<td></td>
-<td>0</td>
-<td>tests.SwagLabsLoginTest@2f4948e4</td></tr>
-<tr>
-<td title='tests.SwagLabsLoginTest.loginTest()'><b>loginTest</b><br>Test class: tests.SwagLabsLoginTest<br>Parameters: TC_011, Negative, , , Error message displayed:Epic sadface: Username is required, Fail</td>
+<td title='tests.SwagLabsLoginTest.loginTest()'><b>loginTest</b><br>Test class: tests.SwagLabsLoginTest<br>Parameters: TC_001, Positive, standard_user, secret_sauce, User is redirected to the Products/Inventory page, Pass</td>
 <td></td>
 <td>0</td>
 <td>tests.SwagLabsLoginTest@2f4948e4</td></tr>
@@ -106,17 +101,22 @@ function toggleAllBoxes() {
 <td>0</td>
 <td>tests.SwagLabsLoginTest@2f4948e4</td></tr>
 <tr>
-<td title='tests.SwagLabsLoginTest.loginTest()'><b>loginTest</b><br>Test class: tests.SwagLabsLoginTest<br>Parameters: TC_001, Positive, standard_user, secret_sauce, User is redirected to the Products/Inventory page, Pass</td>
+<td title='tests.SwagLabsLoginTest.loginTest()'><b>loginTest</b><br>Test class: tests.SwagLabsLoginTest<br>Parameters: TC_011, Negative, , , Error message displayed:Epic sadface: Username is required, Fail</td>
 <td></td>
 <td>0</td>
 <td>tests.SwagLabsLoginTest@2f4948e4</td></tr>
 <tr>
-<td title='tests.SwagLabsLoginTest.loginTest()'><b>loginTest</b><br>Test class: tests.SwagLabsLoginTest<br>Parameters: TC_003, Positive, performance_glitch_user, secret_sauce, User logs in successfully after a delay and lands on Products page, Pass</td>
+<td title='tests.SwagLabsLoginTest.loginTest()'><b>loginTest</b><br>Test class: tests.SwagLabsLoginTest<br>Parameters: TC_007, Negative, invalid_user, secret_sauce, Error message displayed: Username and password do not match any user in this service, Fail</td>
 <td></td>
-<td>5</td>
+<td>0</td>
 <td>tests.SwagLabsLoginTest@2f4948e4</td></tr>
 <tr>
-<td title='tests.SwagLabsLoginTest.loginTest()'><b>loginTest</b><br>Test class: tests.SwagLabsLoginTest<br>Parameters: TC_007, Negative, invalid_user, secret_sauce, Error message displayed: Username and password do not match any user in this service, Fail</td>
+<td title='tests.SwagLabsLoginTest.loginTest()'><b>loginTest</b><br>Test class: tests.SwagLabsLoginTest<br>Parameters: TC_005, Positive, visual_user, secret_sauce, User logs in successfully and lands on Products page, Pass</td>
+<td></td>
+<td>0</td>
+<td>tests.SwagLabsLoginTest@2f4948e4</td></tr>
+<tr>
+<td title='tests.SwagLabsLoginTest.loginTest()'><b>loginTest</b><br>Test class: tests.SwagLabsLoginTest<br>Parameters: TC_010, Negative, standard_user, , Error message displayed: Epic sadface: Password is required., Fail</td>
 <td></td>
 <td>0</td>
 <td>tests.SwagLabsLoginTest@2f4948e4</td></tr>
@@ -126,9 +126,9 @@ function toggleAllBoxes() {
 <td>0</td>
 <td>tests.SwagLabsLoginTest@2f4948e4</td></tr>
 <tr>
-<td title='tests.SwagLabsLoginTest.loginTest()'><b>loginTest</b><br>Test class: tests.SwagLabsLoginTest<br>Parameters: TC_004, Positive, error_user, secret_sauce, User logs in successfully and lands on Products page, Pass</td>
+<td title='tests.SwagLabsLoginTest.loginTest()'><b>loginTest</b><br>Test class: tests.SwagLabsLoginTest<br>Parameters: TC_003, Positive, performance_glitch_user, secret_sauce, User logs in successfully after a delay and lands on Products page, Pass</td>
 <td></td>
-<td>0</td>
+<td>5</td>
 <td>tests.SwagLabsLoginTest@2f4948e4</td></tr>
 </table><p>
 </body>

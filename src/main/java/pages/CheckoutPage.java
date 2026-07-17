@@ -1,7 +1,9 @@
 package pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 public class CheckoutPage {
 
@@ -9,54 +11,113 @@ public class CheckoutPage {
 
     // Constructor
     public CheckoutPage(WebDriver driver) {
+
         this.driver = driver;
+        PageFactory.initElements(driver, this);
+
     }
 
     // ==========================
-    // Checkout Locators
+    // Cart Page
     // ==========================
 
-    By checkoutButton = By.id("checkout");
+    @FindBy(id = "checkout")
+    private WebElement btnCheckout;
 
-    By firstName = By.id("first-name");
-    By lastName = By.id("last-name");
-    By postalCode = By.id("postal-code");
+    // ==========================
+    // Checkout Information
+    // ==========================
 
-    By continueButton = By.id("continue");
+    @FindBy(id = "first-name")
+    private WebElement txtFirstName;
 
-    By finishButton = By.id("finish");
+    @FindBy(id = "last-name")
+    private WebElement txtLastName;
 
-    By completeHeader = By.className("complete-header");
+    @FindBy(id = "postal-code")
+    private WebElement txtPostalCode;
+
+    @FindBy(id = "continue")
+    private WebElement btnContinue;
+
+    // ==========================
+    // Checkout Overview
+    // ==========================
+
+    @FindBy(className = "title")
+    private WebElement lblPageTitle;
+
+    @FindBy(id = "finish")
+    private WebElement btnFinish;
+
+    // ==========================
+    // Checkout Complete
+    // ==========================
+
+    @FindBy(className = "complete-header")
+    private WebElement lblConfirmationMessage;
 
     // ==========================
     // Methods
     // ==========================
 
+    // Click Checkout Button
     public void clickCheckout() {
-        driver.findElement(checkoutButton).click();
+
+        btnCheckout.click();
+
     }
 
-    public void enterFirstName(String fname) {
-        driver.findElement(firstName).sendKeys(fname);
+    // Enter First Name
+    public void enterFirstName(String firstName) {
+
+        txtFirstName.clear();
+        txtFirstName.sendKeys(firstName);
+
     }
 
-    public void enterLastName(String lname) {
-        driver.findElement(lastName).sendKeys(lname);
+    // Enter Last Name
+    public void enterLastName(String lastName) {
+
+        txtLastName.clear();
+        txtLastName.sendKeys(lastName);
+
     }
 
-    public void enterPostalCode(String zip) {
-        driver.findElement(postalCode).sendKeys(zip);
+    // Enter Postal Code
+    public void enterPostalCode(String postalCode) {
+
+        txtPostalCode.clear();
+        txtPostalCode.sendKeys(postalCode);
+
     }
 
+    // Click Continue
     public void clickContinue() {
-        driver.findElement(continueButton).click();
+
+        btnContinue.click();
+
     }
 
+    // Verify Checkout Overview Page
+    public boolean isCheckoutOverviewDisplayed() {
+
+        return lblPageTitle.getText().equals("Checkout: Overview");
+
+    }
+
+    // Click Finish
     public void clickFinish() {
-        driver.findElement(finishButton).click();
+
+        btnFinish.click();
+
     }
 
+    // Get Confirmation Message
     public String getConfirmationMessage() {
-        return driver.findElement(completeHeader).getText();
+
+        return lblConfirmationMessage.getText();
+
     }
+
 }

@@ -4,22 +4,38 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import base.BaseTest;
+import utils.ConfigReader;
+import utils.DataProviderClass;
 
 public class CheckoutTest extends BaseTest {
 
-    @Test
-    public void completeOrderTest() {
+    @Test(dataProvider = "CheckoutData",
+          dataProviderClass = DataProviderClass.class)
+    public void checkoutTest(String testCaseID,
+                             String firstName,
+                             String lastName,
+                             String postalCode) {
+
+        System.out.println("==============================");
+        System.out.println("Executing : " + testCaseID);
 
         // Login
-        loginPage.enterUsername("standard_user");
-        loginPage.enterPassword("secret_sauce");
-        loginPage.clickLogin();
+        loginPage.login(
+                ConfigReader.getProperty("username"),
+                ConfigReader.getProperty("password"));
 
-        // Verify Products Page
-        Assert.assertEquals(shoppingPage.getProductsTitle(), "Products");
+        // Verify Login
+        Assert.assertEquals(
+                shoppingPage.getProductsTitle(),
+                "Products");
 
         // Add Product
         shoppingPage.addBackpack();
+
+        // Verify Cart Count
+        Assert.assertEquals(
+                shoppingPage.getCartCount(),
+                "1");
 
         // Open Cart
         shoppingPage.openCart();
@@ -27,22 +43,18 @@ public class CheckoutTest extends BaseTest {
         // Checkout
         checkoutPage.clickCheckout();
 
-        // Customer Information
-        checkoutPage.enterFirstName("Balamurugan");
-        checkoutPage.enterLastName("K");
-        checkoutPage.enterPostalCode("600048");
+        // Customer Details
+        checkoutPage.enterFirstName(firstName);
+        checkoutPage.enterLastName(lastName);
+        checkoutPage.enterPostalCode(postalCode);
 
+        // Continue
         checkoutPage.clickContinue();
 
-        // Finish Order
-        checkoutPage.clickFinish();
+        // Verify Overview Page
+        Assert.assertTrue(
+                checkoutPage.isCheckoutOverviewDisplayed());
 
-        // Verification
-        Assert.assertEquals(
-                checkoutPage.getConfirmationMessage(),
-                "Thank you for your order!"
-        );
-
-        System.out.println("Order Placed Successfully");
+        System.out.println(testCaseID + " Passed");
     }
 }

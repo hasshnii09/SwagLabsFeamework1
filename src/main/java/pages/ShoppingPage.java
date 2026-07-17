@@ -1,93 +1,60 @@
 package pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 public class ShoppingPage {
 
     WebDriver driver;
 
-    // Constructor
     public ShoppingPage(WebDriver driver) {
+
         this.driver = driver;
+        PageFactory.initElements(driver, this);
+
     }
 
-    // ==========================
-    // Products Page Locators
-    // ==========================
+    // Products Page Title
+    @FindBy(className = "title")
+    WebElement lblProductsTitle;
 
-    By productsTitle = By.className("title");
+    // Add to Cart Buttons
+    @FindBy(id = "add-to-cart-sauce-labs-backpack")
+    WebElement btnBackpack;
 
-    By backpackAddButton = By.id("add-to-cart-sauce-labs-backpack");
-    By bikeLightAddButton = By.id("add-to-cart-sauce-labs-bike-light");
+    @FindBy(id = "add-to-cart-sauce-labs-bike-light")
+    WebElement btnBikeLight;
 
-    By backpackRemoveButton = By.id("remove-sauce-labs-backpack");
-    By bikeLightRemoveButton = By.id("remove-sauce-labs-bike-light");
+    // Cart Badge
+    @FindBy(className = "shopping_cart_badge")
+    WebElement cartBadge;
 
-    // ==========================
-    // Cart Locators
-    // ==========================
+    // Cart Icon
+    @FindBy(className = "shopping_cart_link")
+    WebElement cartIcon;
 
-    By cartIcon = By.className("shopping_cart_link");
-    By cartBadge = By.className("shopping_cart_badge");
-
-    // ==========================
-    // Menu & Logout Locators
-    // ==========================
-
-    By menuButton = By.id("react-burger-menu-btn");
-    By logoutButton = By.id("logout_sidebar_link");
-
-    // ==========================
-    // Products Methods
-    // ==========================
+    // ------------------- Methods -------------------
 
     public String getProductsTitle() {
-        return driver.findElement(productsTitle).getText();
+        return lblProductsTitle.getText();
     }
 
     public void addBackpack() {
-        driver.findElement(backpackAddButton).click();
+        btnBackpack.click();
     }
 
     public void addBikeLight() {
-        driver.findElement(bikeLightAddButton).click();
-    }
-
-    public void removeBackpack() {
-        driver.findElement(backpackRemoveButton).click();
-    }
-
-    public void removeBikeLight() {
-        driver.findElement(bikeLightRemoveButton).click();
-    }
-
-    // ==========================
-    // Cart Methods
-    // ==========================
-
-    public void openCart() {
-        driver.findElement(cartIcon).click();
+        btnBikeLight.click();
     }
 
     public String getCartCount() {
-        return driver.findElement(cartBadge).getText();
+        return cartBadge.getText();
     }
 
-    // ==========================
-    // Logout Methods
-    // ==========================
-
-    public void openMenu() {
-        driver.findElement(menuButton).click();
+    public void openCart() {
+        cartIcon.click();
     }
 
-    public void clickLogout() {
-        driver.findElement(logoutButton).click();
-    }
-
-    public void logout() {
-        openMenu();
-        clickLogout();
-    }
 }

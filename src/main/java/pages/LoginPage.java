@@ -1,42 +1,93 @@
 package pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage {
 
     WebDriver driver;
 
+    // Constructor
     public LoginPage(WebDriver driver) {
 
         this.driver = driver;
+        PageFactory.initElements(driver, this);
+
     }
 
-    By username = By.id("user-name");
+    // =========================
+    // Web Elements
+    // =========================
 
-    By password = By.id("password");
+    @FindBy(id = "user-name")
+    private WebElement txtUsername;
 
-    By loginButton = By.id("login-button");
+    @FindBy(id = "password")
+    private WebElement txtPassword;
 
-    By errorMessage = By.xpath("//h3");
+    @FindBy(id = "login-button")
+    private WebElement btnLogin;
 
-    public void enterUsername(String user) {
+    @FindBy(css = "h3[data-test='error']")
+    private WebElement lblErrorMessage;
 
-        driver.findElement(username).sendKeys(user);
+    // =========================
+    // Methods
+    // =========================
+
+    // Enter Username
+    public void enterUsername(String username) {
+
+        txtUsername.clear();
+        txtUsername.sendKeys(username);
+
     }
 
-    public void enterPassword(String pass) {
+    // Enter Password
+    public void enterPassword(String password) {
 
-        driver.findElement(password).sendKeys(pass);
+        txtPassword.clear();
+        txtPassword.sendKeys(password);
+
     }
 
+    // Click Login Button
     public void clickLogin() {
 
-        driver.findElement(loginButton).click();
+        btnLogin.click();
+
     }
 
+    // Complete Login
+    public void login(String username, String password) {
+
+        enterUsername(username);
+        enterPassword(password);
+        clickLogin();
+
+    }
+
+    // Get Error Message
     public String getErrorMessage() {
 
-        return driver.findElement(errorMessage).getText();
+        return lblErrorMessage.getText();
+
+    }
+
+    // Verify Error Message is Displayed
+    public boolean isErrorDisplayed() {
+
+        return lblErrorMessage.isDisplayed();
+
+    }
+
+    // Clear Login Fields (Optional)
+    public void clearFields() {
+
+        txtUsername.clear();
+        txtPassword.clear();
+
     }
 }

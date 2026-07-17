@@ -4,31 +4,46 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import base.BaseTest;
+import utils.ConfigReader;
 
 public class ShoppingTest extends BaseTest {
 
     @Test
-    public void shoppingFlowTest() {
+    public void shoppingCartTest() {
 
-        // Login
-        loginPage.enterUsername("standard_user");
-        loginPage.enterPassword("secret_sauce");
-        loginPage.clickLogin();
+        System.out.println("========================================");
+        System.out.println("Shopping Test Started");
+
+        // Login using config.properties
+        loginPage.login(
+                ConfigReader.getProperty("username"),
+                ConfigReader.getProperty("password"));
 
         // Verify Products Page
-        Assert.assertEquals(shoppingPage.getProductsTitle(), "Products");
+        Assert.assertEquals(
+                shoppingPage.getProductsTitle(),
+                "Products",
+                "Login Failed!");
 
         // Add Backpack
         shoppingPage.addBackpack();
-        Assert.assertEquals(shoppingPage.getCartCount(), "1");
+
+        Assert.assertEquals(
+                shoppingPage.getCartCount(),
+                "1",
+                "Backpack was not added to cart.");
 
         // Add Bike Light
         shoppingPage.addBikeLight();
-        Assert.assertEquals(shoppingPage.getCartCount(), "2");
+
+        Assert.assertEquals(
+                shoppingPage.getCartCount(),
+                "2",
+                "Bike Light was not added to cart.");
 
         // Open Cart
         shoppingPage.openCart();
 
-        System.out.println("Shopping Flow Completed Successfully");
+        System.out.println("Shopping Test Passed Successfully");
     }
 }

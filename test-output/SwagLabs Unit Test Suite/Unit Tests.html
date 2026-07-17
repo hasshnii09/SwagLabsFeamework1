@@ -1,0 +1,145 @@
+<html>
+<head>
+<title>TestNG:  Unit Tests</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>Unit Tests</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>13/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Fri Jul 17 16:20:41 IST 2026</td>
+</tr>
+<tr><td>Total time:</td><td>42 seconds (42957 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td><b>Attribute(s)</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='tests.SwagLabsLoginTest.loginTest()'><b>loginTest</b><br>Test class: tests.SwagLabsLoginTest<br>Parameters: TC_010, Negative, standard_user, , Error message displayed: Epic sadface: Password is required., Fail</td>
+<td></td>
+<td>0</td>
+<td>tests.SwagLabsLoginTest@5aa9e4eb</td></tr>
+<tr>
+<td title='tests.SwagLabsLoginTest.loginTest()'><b>loginTest</b><br>Test class: tests.SwagLabsLoginTest<br>Parameters: TC_007, Negative, invalid_user, secret_sauce, Error message displayed: Username and password do not match any user in this service, Fail</td>
+<td></td>
+<td>0</td>
+<td>tests.SwagLabsLoginTest@5aa9e4eb</td></tr>
+<tr>
+<td title='tests.SwagLabsLoginTest.loginTest()'><b>loginTest</b><br>Test class: tests.SwagLabsLoginTest<br>Parameters: TC_005, Positive, visual_user, secret_sauce, User logs in successfully and lands on Products page, Pass</td>
+<td></td>
+<td>0</td>
+<td>tests.SwagLabsLoginTest@5aa9e4eb</td></tr>
+<tr>
+<td title='tests.SwagLabsLoginTest.loginTest()'><b>loginTest</b><br>Test class: tests.SwagLabsLoginTest<br>Parameters: TC_001, Positive, standard_user, secret_sauce, User is redirected to the Products/Inventory page, Pass</td>
+<td></td>
+<td>1</td>
+<td>tests.SwagLabsLoginTest@5aa9e4eb</td></tr>
+<tr>
+<td title='tests.SwagLabsLoginTest.loginTest()'><b>loginTest</b><br>Test class: tests.SwagLabsLoginTest<br>Parameters: TC_011, Negative, , , Error message displayed:Epic sadface: Username is required, Fail</td>
+<td></td>
+<td>0</td>
+<td>tests.SwagLabsLoginTest@5aa9e4eb</td></tr>
+<tr>
+<td title='tests.SwagLabsLoginTest.loginTest()'><b>loginTest</b><br>Test class: tests.SwagLabsLoginTest<br>Parameters: TC_002, Positive, problem_user, secret_sauce, User logs in successfully and lands on Products page, Pass</td>
+<td></td>
+<td>0</td>
+<td>tests.SwagLabsLoginTest@5aa9e4eb</td></tr>
+<tr>
+<td title='tests.ShoppingTest.shoppingCartTest()'><b>shoppingCartTest</b><br>Test class: tests.ShoppingTest</td>
+<td></td>
+<td>0</td>
+<td>tests.ShoppingTest@8297b3a</td></tr>
+<tr>
+<td title='tests.CheckoutTest.checkoutTest()'><b>checkoutTest</b><br>Test class: tests.CheckoutTest<br>Parameters: TC001, hasini, m, 600001</td>
+<td></td>
+<td>1</td>
+<td>tests.CheckoutTest@2362f559</td></tr>
+<tr>
+<td title='tests.SwagLabsLoginTest.loginTest()'><b>loginTest</b><br>Test class: tests.SwagLabsLoginTest<br>Parameters: TC_004, Positive, error_user, secret_sauce, User logs in successfully and lands on Products page, Pass</td>
+<td></td>
+<td>0</td>
+<td>tests.SwagLabsLoginTest@5aa9e4eb</td></tr>
+<tr>
+<td title='tests.SwagLabsLoginTest.loginTest()'><b>loginTest</b><br>Test class: tests.SwagLabsLoginTest<br>Parameters: TC_009, Negative, , , Error message displayed: Epic sadface: Username is required., Fail</td>
+<td></td>
+<td>0</td>
+<td>tests.SwagLabsLoginTest@5aa9e4eb</td></tr>
+<tr>
+<td title='tests.SwagLabsLoginTest.loginTest()'><b>loginTest</b><br>Test class: tests.SwagLabsLoginTest<br>Parameters: TC_003, Positive, performance_glitch_user, secret_sauce, User logs in successfully after a delay and lands on Products page, Pass</td>
+<td></td>
+<td>5</td>
+<td>tests.SwagLabsLoginTest@5aa9e4eb</td></tr>
+<tr>
+<td title='tests.SwagLabsLoginTest.loginTest()'><b>loginTest</b><br>Test class: tests.SwagLabsLoginTest<br>Parameters: TC_008, Negative, standard_user, wrong_pass, Error message displayed: Username and password do not match any user in this service, Fail</td>
+<td></td>
+<td>0</td>
+<td>tests.SwagLabsLoginTest@5aa9e4eb</td></tr>
+<tr>
+<td title='tests.SwagLabsLoginTest.loginTest()'><b>loginTest</b><br>Test class: tests.SwagLabsLoginTest<br>Parameters: TC_006, Negative, locked_out_user, secret_sauce, Error message displayed: Epic sadface: Sorry, this user has been locked out., Fail</td>
+<td></td>
+<td>0</td>
+<td>tests.SwagLabsLoginTest@5aa9e4eb</td></tr>
+</table><p>
+</body>
+</html>
